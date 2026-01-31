@@ -13,6 +13,14 @@
       align-items: center;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .intro {
+      max-width: 500px;
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
     .card {
@@ -27,6 +35,10 @@
     h1 {
       margin-bottom: 1.5rem;
       font-size: 2rem;
+      color: #333;
+    }
+
+    h2 {
       color: #333;
     }
 
@@ -79,10 +91,19 @@
   </style>
 </head>
 <body>
-  <div class="card" id="card">
+
+  <!-- Prelude intro section -->
+  <div class="intro" id="introSection">
+    <h2>I've been dying to ask for the last week this one question,<br>but I am still dying.<br>
+    Today is the last day, so I didn't want to <em>blank</em>.</h2>
+    <button id="nextBtn" onclick="showProposal()" style="margin-top: 1.5rem; background: #43a047;">Next ➡️</button>
+  </div>
+
+  <!-- Main proposal card, hidden initially -->
+  <div class="card" id="card" style="display:none;">
     <h1 id="question">Will you be my valentine 💕</h1>
 
-    <img id="gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzQ1YTFwYWF3ZGtiMzljZW51eXY5Y24yZzQxNmoyZjBwOW84NjZvbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7k3ThwwMXnHCE/giphy.gif" alt="Cute gif" id="gif" alt="Cute gif" />
+    <img id="gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzQ1YTFwYWF3ZGtiMzljZW51eXY5Y24yZzQxNmoyZjBwOW84NjZvbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7k3ThwwMXnHCE/giphy.gif" alt="Cute gif" />
 
     <div class="buttons">
       <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
@@ -91,6 +112,11 @@
   </div>
 
   <script>
+    function showProposal() {
+      document.getElementById('introSection').style.display = 'none';
+      document.getElementById('card').style.display = 'block';
+    }
+
     let noClickCount = 0;
 
     const noTexts = [
@@ -101,7 +127,6 @@
       "I promise I will make a good valentine, please say yes"
     ];
 
-    // GIFs that change every time NO is clicked
     const noGifs = [
       "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm84c2F2b3FoNjhsd2o0djhnOXdhdDQxcXFmaTl4MmFzNXhrMmdiZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9xuC1pYfzUtx63rNbu/giphy.gif",
       "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDcwY2Q3Z2RhNG02MW5ucmUzZWVrOW1uMXV5OWlqbnY4amtzc3dxdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/q3ZBNmc4uNNXq/giphy.gif",
@@ -148,3 +173,4 @@
   </script>
 </body>
 </html>
+
